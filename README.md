@@ -1,5 +1,5 @@
 
-#### Divide The ComponentsDivide The Components
+### Divide The ComponentsDivide The Components
 
 Divide your React components into two directories - **components and containers.** You can name them differently as per your choice.
 
@@ -41,8 +41,8 @@ import type { NutritionalInfoType } from 'types/product'
 import { nutritionalInfoStyles as styles } from './styles'
 ```
 
-<br>
-#### Create Aliases
+
+### Create Aliases
 
 Create aliases using babel-plugin-module-resolver to avoid nested imports such as import Product from `'../../../Components/Product'`. Aliases created using babel-plugin-module-resolver look something like this.
 
@@ -63,8 +63,8 @@ alias: {
 
 You can use imports like import Product from `'components/Product'` after setting it up.
 
-<br>
-#### Sort the imports
+
+### Sort the imports
 
 Divide your imports and sort them logically unless it is not possible due to the use of aliases. There is no hard rule with the order in which you sort them, but at least categorizing them into two categories such as library imports and all other imports would be easier for someone reviewing your code.
 
@@ -81,8 +81,8 @@ import { DefaultStatusBar, RedStatusBar } from 'components/StatusBar'
 import { orderStyles as styles } from './styles'
 ```
 
-<br>
-#### Declare the types
+
+### Declare the types
 
 Be it TypeScript or Flow, it is essential to declare the types of every object in the code. This includes declaring the return type and argument type.
 
@@ -105,8 +105,8 @@ type LoginUserType = {|
   password: string,
 |}
 ```
-<br>
-#### Separate The Styles
+
+### Separate The Styles
 Among the various ways to deal with style, the React Native styling best practice is to separate the styles from the components.
 
 Normally, to use styles better developers import the stylesheet from the React native library to create a separate style object.
@@ -128,8 +128,8 @@ import { productAmountstyles as styles } from './styles'
 </View>
 ```
 
-<br>
-#### Use Hooks
+
+### Use Hooks
 
 
  you are writing a function component, and you realize that there is a need to add a state, in such cases hooks come off as a great helping tool. Nowdays you can write most of the code with the help of hook which can reduce the code and improve the readablity
@@ -148,12 +148,12 @@ const authenticationData: AuthenticationStateType = useSelector
 const mapViewRef: { current: MapView } = useRef(null)
 ```
 
-<br>
-#### Manage with Redux
+
+### Manage with Redux
 Redux is still useful and has a predictable way to handle the App state in our projects. Use it with [React Native debugger](https://github.com/jhen0409/react-native-debugger "React Native debugger"), which is packed with a lot of useful features such as viewing the entire App state tree (giant JavaScript object), firing redux actions on the fly to see it reflect on the App UI and so on.
 
-<br>
-#### Aggregate The Selectors
+
+### Aggregate The Selectors
 
  Selector is a function that accepts the Redux state in the form of an argument and routes the data back which is extracted from the state.
 
@@ -176,13 +176,13 @@ export const productsByIdSelector = createSelector(
 const productsById = useSelector(productsByIdSelector)
 ```
 
-<br>
-#### Use Jest
+
+### Use Jest
 
 TDD and writing clear tests are important, and lead to fewer future bugs. Different parts of React Native Apps can be tested in different ways, and We should implement at least the Snapshot tests and Redux tests
 
-<br>
-#### Classify The Components
+
+### Classify The Components
 We should have 2 type of components 
 Presentation Component and Container component
 
@@ -191,13 +191,13 @@ Presentation Component and Container component
 - Does not provide info about data loading and mutable option
 - Uses props to callback and receive data
 
-<br>
+
 **Container component**
 - It contains info about the component
 - Arms the presentational component with stateful properties
 
-<br>
-#### Key of Each Element Should Be Unique
+
+### Key of Each Element Should Be Unique
 React is working on Shadow dom to update specific part of list. If list has same key it will have a direct impact on the performance of the app, as it can slow down the app’s functionality. Thus, it is advised to use a unique key for each element in the list. Also it will show the error also for the non-unique key
 
 ```
@@ -210,8 +210,8 @@ const todoItems = todos.map((todo) =>
 
 The most efficient way to add a unique key to each element is to assign a particular id. An ‘id’ is assigned to each element making it simple to represent changes for a particular element.
 
-<br>
-#### Manage Static Images
+
+### Manage Static Images
 
 As per the RN doc, if you want to add a static image, you must specify it using the ‘require’ tag in the source code tree.
 
@@ -234,8 +234,8 @@ There are several advantages of specifying the image using ‘require’. For in
   <Image source={icon} />;
   ```
 
-<br>
-#### Using Platform Specific Code & Style
+
+### Using Platform Specific Code & Style
 
 Using platform specific code is one of the effective React Native Best Practices.This allowed us to develop an application that fits both iOS and Android versions.
 
@@ -259,8 +259,8 @@ const styles = StyleSheet.create({
 
 There are two specific APIs: Platform.OS and Platform.select. These APIs help to gauge the native platform and apply appropriate styles.
 
-<br>
-#### Locking Dependencies
+
+### Locking Dependencies
 
 Dependencies make the task of developing an app more holistic and easier, but at the same time, you must employ dependencies that are of utmost necessity.
 
@@ -286,23 +286,23 @@ The basic idea of React was to develop a UI framework that delivers the best use
 
 The most commonly used UI framework is [Galio.io](https://galio.io/ "Galio.io").[NativeBase](https://nativebase.io/ "NativeBase")  Such a platform not only augments the rate of build, but it also provides for selecting specific components.
 
-<br>
-#### Do not Put Logs In Release Build
+
+### Do not Put Logs In Release Build
 
 Putting logs in release builds is a no-no, as it slows down your app. This true for most of the logger types present out there, especially if you work in a redux logger.
 
 Excess use of the console.log statement which initiates the thread of log for keeping track of events and warnings is the cause for slowing down the application.
 
-<br>
-#### Use Safe Area View
+
+### Use Safe Area View
 In the newer versions of the iPhone, the sensor and the home button overlap with the nav and tab bar components. It is one of the effective React Native Security Best Practices.
 
 This creates a bad user experience and also the interface looks murky. To solve this issue React Native introduced something called safe area view.
 
 In the landscape mode, the content seems to overlap with the sensor cluster, so in the view tag for content, you need to import the safe area view.
 
-<br>
-#### Do not Use TouchWithoutFeedback
+
+### Do not Use TouchWithoutFeedback
 
  RN includes touchable button components in various forms.
 
@@ -312,8 +312,8 @@ The docs available on the RN official website states you should have a good reas
 
 You can use this touchable element when you do not want to trigger animated feedback when initiating action.
 
-<br>
-#### Do not Use Expo
+
+### Do not Use Expo
 
 Expo does bring in several advantages to the table and there is no denying this fact. For instance, with Expo, the developers can carve a fully functional cross-platform native without having to learn Xcode or Java (Android studio).
 
