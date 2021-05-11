@@ -5,14 +5,16 @@
 When the file is in a folder with same name, we don’t need to repeat the name. That means, components/user/form/Form.js, would be named as UserForm and not as UserFormForm.
 
 - Include all the control in a single import belong to same module end with semicolon. There should be no space between two imports.
-import {ScrollView, View, TouchableOpacity, KeyboardAvoidingView, ListView, AsyncStorage, Alert } from ‘react-native’;
+``` import {ScrollView, View, TouchableOpacity, KeyboardAvoidingView, ListView, AsyncStorage, Alert } from ‘react-native’; ```
 
 - The class name should be declared as the file name that will be easy during importing and to maintain the standard declaration.
 - The object and variable declaration should always in camel case statement. If we use semicolon then use in all places at the end of statement or do not use.
 
-let textExample = “Hello World”;
+```
+let textExample = "Hello World";
 OR
-let textExample = “Hello World”
+let textExample = "Hello World"
+```
 
 ### Structuring Folder
 
@@ -354,7 +356,7 @@ But by using Expo developers ignores flow coming in the Native applications whic
 
 Use a separate file to keep your font sizes and make those variables access throughout your app. This eliminates your unnecessary code duplication and especially if the marketing team want to change the theme and then you can simply change it on 1 or 2 files instead of changing every single file.
 
-7. Check internet connectivity
+### Check internet connectivity
 
 - When you are building your React Native app that needs to pull assets or data from a server, there is a possibility that some users may use the application in an offline environment i.e., without an internet connection. 
 - There is a chance that the app might crash. So, for a better user experience, we can handle this by checking for an internet connection and notifying the user if not.
