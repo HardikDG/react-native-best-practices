@@ -1,3 +1,27 @@
+### Naming Conventions
+
+- To name the components, we follow the pattern path based component naming, which include naming the component accordingly to its relative path to the folder components or to app. 
+- Basically, a component that is located at: components/common/Button.js would be named as Button.js. Component Name should follow pascal case.
+When the file is in a folder with same name, we don’t need to repeat the name. That means, components/user/form/Form.js, would be named as UserForm and not as UserFormForm.
+
+- Include all the control in a single import belong to same module end with semicolon. There should be no space between two imports.
+import {ScrollView, View, TouchableOpacity, KeyboardAvoidingView, ListView, AsyncStorage, Alert } from ‘react-native’;
+
+- The class name should be declared as the file name that will be easy during importing and to maintain the standard declaration.
+- The object and variable declaration should always in camel case statement. If we use semicolon then use in all places at the end of statement or do not use.
+
+let textExample = “Hello World”;
+OR
+let textExample = “Hello World”
+
+### Structuring Folder
+
+- All the components, globals, images, redux etc.. Should be written inside the app folder
+- All the components except global components should be written inside the components folder under an app folder. A style for every page is written in its corresponding folder.
+- All the global components, global styles, golbal data etc .. should be written in the globals folder under an app folder. Example of search bar is shown below. A search bar is written as a global component in the components folder under the globals folder, since it is used in many screens.
+- Images should be there in the images folder under the app folder.
+- If using redux, then the redux files should be written inside the store folder under the app folder
+
 
 ### Divide The ComponentsDivide The Components
 
@@ -128,6 +152,13 @@ import { productAmountstyles as styles } from './styles'
 </View>
 ```
 
+- Using inline stylings is much harder to maintain if a change is to be made there will be hundreds of places in the code you will have to search and change unless all styles are clearly defined with unique class names in a CSS stylesheet.
+
+
+### Use Lint
+
+Use a linter to make your code easier to review.
+Follow strict linting rules. This in turn helps you write clean, consistent code.
 
 ### Use Hooks
 
@@ -318,3 +349,12 @@ You can use this touchable element when you do not want to trigger animated feed
 Expo does bring in several advantages to the table and there is no denying this fact. For instance, with Expo, the developers can carve a fully functional cross-platform native without having to learn Xcode or Java (Android studio).
 
 But by using Expo developers ignores flow coming in the Native applications which can come at the time of Native building and testing so it is better to start without Expo 
+
+### Use global variables for font sizes and colors
+
+Use a separate file to keep your font sizes and make those variables access throughout your app. This eliminates your unnecessary code duplication and especially if the marketing team want to change the theme and then you can simply change it on 1 or 2 files instead of changing every single file.
+
+7. Check internet connectivity
+
+- When you are building your React Native app that needs to pull assets or data from a server, there is a possibility that some users may use the application in an offline environment i.e., without an internet connection. 
+- There is a chance that the app might crash. So, for a better user experience, we can handle this by checking for an internet connection and notifying the user if not.
